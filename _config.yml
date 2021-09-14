@@ -63,7 +63,7 @@ kramdown:
 gitalk:
   enable: true    #是否开启Gitalk评论
   clientID: ce5530917172d0870b3e                           #生成的clientID
-  clientSecret: 0163ae6ac03b9c41eb348cb5caf6503c90fbcbc0    #生成的clientSecret
+  clientSecret: 2be0b129483f80f96b53542a614b27d2898bb647    #生成的clientSecret
   repo: Fans-blog    #仓库名称
   owner: Fans-xmu    #github用户名
   admin: Fans-xmu
