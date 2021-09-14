@@ -62,11 +62,11 @@ kramdown:
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
-  clientID: d18b343dd9c7ca49518a                            #生成的clientID
-  clientSecret: 539e88b8a7feffaddbb553b9c421dfefcbc6eced    #生成的clientSecret
-  repo: klovien.github.io    #仓库名称
-  owner: klovien    #github用户名
-  admin: klovien
+  clientID: ce5530917172d0870b3e                           #生成的clientID
+  clientSecret: 0163ae6ac03b9c41eb348cb5caf6503c90fbcbc0    #生成的clientSecret
+  repo: Fans-blog    #仓库名称
+  owner: Fans-xmu    #github用户名
+  admin: Fans-xmu
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
