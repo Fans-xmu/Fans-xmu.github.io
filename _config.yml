@@ -3,11 +3,11 @@ title: Fans的学习博客
 SEOTitle: Fans的学习博客 - 让学习更容易
 header-img: img/post-bg-desk.jpg
 email: shuaifan@stu.xmu.edu.cn
-description: "中西融合, 即学即会, 从此不再辛苦背单词"
-keyword: "人工语言, 国际语, 世界语, 三叶草国际语, 三叶语"
-url: "https://klovien.github.io"          # your host, for absolute URL
+description: "即学即会,让学习更容易"
+keyword: "人工智能，推荐系统，自然语言处理，深度学习，机器学习，leetcode"
+url: "https://Fans-xmu.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/klovien/klovien.github.io.git" # you code repository
+github_repo: "https://github.com/Fans-xmu/Fans-xmu.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
