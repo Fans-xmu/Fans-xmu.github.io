@@ -99,10 +99,10 @@ service-worker: true
 # 友情链接，请尽量不要删除，谢谢！
 friends: [
     {
-        title: "github",
+        title: "my github",
         href: "https://github.com/Fans-xmu"
     },{
-        title: "csdn",
+        title: "my csdn",
         href: "https://blog.csdn.net/fs1341825137"
     }
 ]
