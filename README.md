@@ -1,4 +1,4 @@
-本项目示范网站地址为：https://klovien.github.io 。
+本项目为Fans的私人博客，示范网站地址为：https://Fans-xmu.github.io 。
 
 
 ### 致谢
