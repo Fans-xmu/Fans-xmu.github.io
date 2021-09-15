@@ -140,14 +140,14 @@ FFN 相当于将每个位置的Attention结果映射到一个**更大维度的�
 **masked-self-attention**
 **这里mask的作用**，我们首先要知道，transformer用在seq2seq模型的时候，decoder序列的时候也是一个词一个词的自回归的生成，这个时候会用到一个casual attention的概念，就是每个词的生成只和他之前已经生成的词做attention运算。那么后面的词就需要mask掉，避免剧透未来信息。
 
-我们以生成我，爱，机器，学习，翻译成<bos>,i，love，machine，learning,<eos>这个例子做生成过程来解释。
+我们以生成我，爱，机器，学习，翻译成\<bos>,i，love，machine，learning,\<eos>这个例子做生成过程来解释。
 训练：
 1. 把“我/爱/机器/学习”embedding后输入到encoder里去，最后一层的encoder最终输出的outputs [10, 512]（假设我们采用的embedding长度为512，而且batch size = 1),此outputs 乘以新的参数矩阵，可以作为decoder里每一层用到的K和V；
-2. 将<bos>作为decoder的初始输入，将decoder的最大概率输出词向量A1和‘i’做cross entropy（交叉熵）计算error。
-3. 将<bos>，"i" 作为decoder的输入，将decoder的最大概率输出词 A2 和‘love’做cross entropy计算error。
-4. 将<bos>，"i"，"love" 作为decoder的输入，将decoder的最大概率输出词A3和'machine' 做cross entropy计算error。
-5. 将<bos>，"i"，"love "，"machine" 作为decoder的输入，将decoder最大概率输出词A4和‘learning’做cross entropy计算error。
-6. 将<bos>，"i"，"love "，"machine"，"learning" 作为decoder的输入，将decoder最大概率输出词A5和终止符</s>做cross entropy计算error。
+2. 将\<bos>作为decoder的初始输入，将decoder的最大概率输出词向量A1和‘i’做cross entropy（交叉熵）计算error。
+3. 将\<bos>，"i" 作为decoder的输入，将decoder的最大概率输出词 A2 和‘love’做cross entropy计算error。
+4. 将\<bos>，"i"，"love" 作为decoder的输入，将decoder的最大概率输出词A3和'machine' 做cross entropy计算error。
+5. 将\<bos>，"i"，"love "，"machine" 作为decoder的输入，将decoder最大概率输出词A4和‘learning’做cross entropy计算error。
+6. 将\<bos>，"i"，"love "，"machine"，"learning" 作为decoder的输入，将decoder最大概率输出词A5和终止符</s>做cross entropy计算error。
 那么并行的时候是怎么做的呢，我们会有一个mask矩阵在这叫seq mask，因为他起到的作用是在decoder编码我们的target seq的时候对每一个词的生成遮盖它之后的词的信息。
 如下图:
   
@@ -160,10 +160,10 @@ FFN 相当于将每个位置的Attention结果映射到一个**更大维度的�
 
 这里我们可以简单地解释一下，在decoder接收我们当前的targetlength长度作为输入时，是不会有停止词的，也就是decoder的输入时是\<s>，北，京，欢，迎，你。而输出的对应位置(要算loss的相应位置的标准输出)是北，京，欢，迎，你,\<e>。上图的横轴和纵轴正式如此。
 对于我爱机器学习的例子而言，encoder的输入是我，爱，机器，学习
-而decoder的输入是<bos>,i，love，machine，learning，decoder的输出是i,love,machine,learning,<eos>。懂了吗？等于每个位置的算loss的行为变成并行的了。
+而decoder的输入是\<bos>,i，love，machine，learning，decoder的输出是i,love,machine,learning,\<eos>。懂了吗？等于每个位置的算loss的行为变成并行的了。
 
 - **那我们在用到encoder部分的K和V的时候**，我们知道这个K和V是encode输出[seq_len,embed_size]大小的维度矩阵乘以Wk和Wv得到的，K和V也是这个维度的,在我爱机器学习中的例子，seq_len=4(我，爱，机器，学习)。
-- **而我们decoder的Q的产生**是[target_len,embedd]维度的矩阵乘以Wq得到的，Q也是这个维度，target_len指的是decoder输入的句子长度，在我爱机器学习的例子中，target_len=5(输入是<bos>,i，love,machine,learning)。
+- **而我们decoder的Q的产生**是[target_len,embedd]维度的矩阵乘以Wq得到的，Q也是这个维度，target_len指的是decoder输入的句子长度，在我爱机器学习的例子中，target_len=5(输入是\<bos>,i，love,machine,learning)。
 
 这个时候我们要用decoder产生的Q去和encoder产生的K去算attention。
 因此我们得到的attention矩阵是![e4395896ac6b59fc76d1d0d21ccf7b05_bdac1f9ae38a4fdab86eed951064bd02](https://user-images.githubusercontent.com/62433206/133383061-47be808a-1002-419b-8ca9-f0a4061d364b.png)
