@@ -7,7 +7,7 @@ author:     Fans
 header-img: img/post-bg-swift2.jpg
 catalog: 	  true
 tags:
-    - 机器学习
+    - 深度学习
 ---
 # 前言
 由谷歌团队提出的预训练语言模型BERT近年来正在各大自然语言处理任务中屠榜（话说学者们也挺有意思的，模型名都强行凑个芝麻街的人物名，哈哈哈）。 BERT算法的最重要的部分便是Transformer的概念，它本质上是Transformer的编码器部分。 而Transformer是什么呢？transformer是永远的神，自从transformer使用了抛弃rnncnn的纯attention机制之后，各种基于transformer结构的预训练模型都如雨后春笋般雄起，而transformer中最重要就是使用了Self-Attention机制，所以本文会从Attention机制说起。
