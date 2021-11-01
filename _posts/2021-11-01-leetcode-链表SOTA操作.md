@@ -24,6 +24,7 @@ tags:
 这样的时间复杂度是O3n/2,因为要访问一遍半的链表，需要的时间复杂度较高
 2. 要么就将链表元素转换到数组中，然后采用下标直接访问，但是需要On的空间复杂度，并且时间复杂度也有On
 
+
 **SOTA解法**： **最好的解法使用快慢指针解法**
 使用一个slow指针每次走一步，一个fast指针每次走两步，快指针走到尽头的时候，slow恰在中点
 注意边界条件，**当链表长度为偶数的时候，快指针最后一步不走，slow到达链表中间节点（偶数长度链表两个中间节点）的左边。**
@@ -60,7 +61,7 @@ def reverseList(self, head: ListNode) -> ListNode:
 递归解法：
 ```python
 def reverseList(self, head: ListNode) -> ListNode:
-    # 1. 递归终止条件
+    ''' 1. 递归终止条件'''
     if head is None or head.next is None:
         return head
     
