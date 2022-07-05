@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      2021-11-01-链表SOTA操作
+title:      链表操作
 subtitle:   leetcode-链表SOTA操作
 date:       2021-11-01
 author:     Fans
