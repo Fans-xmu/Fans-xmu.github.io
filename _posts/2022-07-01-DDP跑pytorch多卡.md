@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      2022-07-01-DDP分布式多GPU并行跑pytorch深度学习模型
+title:      DDP分布式多GPU并行跑pytorch深度学习模型
 subtitle:   DDP
 date:       2022-07-03
 author:     Fans
