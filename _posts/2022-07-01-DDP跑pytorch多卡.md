@@ -5,9 +5,9 @@ subtitle:   DDP
 date:       2022-07-03
 author:     Fans
 header-img: img/post-bg-swift7.jpg
-catalog: 	  true
+catalog:	true
 tags:
-    - leetcode
+    - 深度学习
 
 ---
 
